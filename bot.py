@@ -7,11 +7,11 @@ import requests # Для HTTP-запросов к Gemini API
 import json # Для работы с JSON-ответами
 import PyPDF2 # Для извлечения текста из PDF
 
-# Включите логирование для отладки
+# Логирование для отладки
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
 )
-# Установите более низкий уровень логирования для httpx, чтобы избежать слишком большого количества сообщений
+# Более низкий уровень логирования для httpx, чтобы избежать слишком большого количества сообщений
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
@@ -144,7 +144,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         return
 
     # Объединяем все тексты учебных планов в одну строку для контекста LLM
-    # В реальном приложении, если тексты очень большие, может потребоваться
+    # В реальном приложении, если тексты очень большие, потребуется
     # более сложная логика для выбора релевантных частей текста (например, с помощью векторизации).
     full_context = "\n\n".join(study_plan_texts.values())
 
