@@ -59,8 +59,6 @@ def process_study_plans(pdf_dir="study_plans") -> dict:
     return extracted_texts
 
 if __name__ == "__main__":
-    # Убедитесь, что папка 'study_plans' существует и содержит скачанные PDF
-    # Если вы запускаете этот скрипт отдельно, убедитесь, что parser.py уже скачал файлы.
     
     print("Начинаем извлечение текста из PDF-файлов...")
     study_plan_texts = process_study_plans()
@@ -69,10 +67,6 @@ if __name__ == "__main__":
         print("\nТекст успешно извлечен из следующих файлов:")
         for filename, text_content in study_plan_texts.items():
             print(f"- {filename} (длина текста: {len(text_content)} символов)")
-            # Для демонстрации вы можете распечатать часть текста
-            # print("--- Начало текста ---")
-            # print(text_content[:500]) # Печатаем первые 500 символов
-            # print("--- Конец текста ---")
     else:
         print("\nНе удалось извлечь текст ни из одного PDF-файла. Проверьте директорию и файлы.")
 
