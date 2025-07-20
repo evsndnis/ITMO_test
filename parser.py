@@ -33,13 +33,10 @@ def download_study_plan(url, output_dir="study_plans"):
         "plugins.always_open_pdf_externally": True # Открывать PDF во внешнем приложении, а не в браузере
     })
 
-    # Убедитесь, что chromedriver.exe находится в вашем PATH или укажите полный путь к нему
-    # service = Service(executable_path="/path/to/your/chromedriver") # Пример: service = Service("C:/chromedriver/chromedriver.exe")
     driver = None
     try:
         # Инициализация WebDriver
         driver = webdriver.Chrome(options=options) # Если chromedriver в PATH
-        # driver = webdriver.Chrome(service=service, options=options) # Если указан путь к chromedriver
 
         driver.get(url)
         print(f"Страница загружена: {url}")
